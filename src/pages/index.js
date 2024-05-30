@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Typography, Button, Box } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -21,11 +22,12 @@ export default function Home() {
           }}
         >
           <Image
-            src="/mineria.webp" // Asegúrate de que la imagen esté en el directorio public
+            src="/desalinizadora.jpg" // Asegúrate de que la imagen esté en el directorio public
             alt="Minería"
             fill
             style={{ objectFit: 'cover' }} // Actualización para Next.js 13
-            priority // Agregar la propiedad priority
+            priority
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" // Agregar la propiedad sizes
             fetchpriority="high" // Corregir el atributo fetchPriority
           />
         </Box>
@@ -33,33 +35,33 @@ export default function Home() {
           variant="h5"
           component="h2"
           gutterBottom
-          sx={{ mt: 2, fontSize: { xs: '1.5rem', md: '2rem' } }} // Font size adjusts with screen size
+          sx={{ mt: 4, fontSize: { xs: '1.5rem', md: '2rem' } }} // Font size adjusts with screen size
         >
           Líderes en Soluciones para Desalinización y Minería
-
         </Typography>
         <Typography
-          variant="body1"
+          variant="h5"
           component="p"
           sx={{ mt: 2, fontSize: { xs: '1rem', md: '1.25rem' } }} // Font size adjusts with screen size
         >
           Maximiza tu producción con nuestros canastos y filtros autolimpiantes de alta eficiencia.
-
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            mt: 6,
-            backgroundColor: 'grey',
-            '&:hover': {
-              backgroundColor: 'darkgrey',
-            },
-            fontSize: { xs: '0.75rem', md: '1rem' }, // Font size adjusts with screen size
-            padding: { xs: '8px 16px', md: '12px 24px' }, // Padding adjusts with screen size
-          }}
-        >
-          Contáctanos
-        </Button>
+        <Link href="/contact" passHref>
+          <Button
+            variant="contained"
+            sx={{
+              mt: 6,
+              backgroundColor: 'grey',
+              '&:hover': {
+                backgroundColor: 'darkgrey',
+              },
+              fontSize: { xs: '0.75rem', md: '1rem' }, // Font size adjusts with screen size
+              padding: { xs: '8px 16px', md: '12px 24px' }, // Padding adjusts with screen size
+            }}
+          >
+            Contáctanos
+          </Button>
+        </Link>
       </Box>
     </Container>
   );
