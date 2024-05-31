@@ -40,7 +40,7 @@ export default function Home() {
           Líderes en Soluciones para Desalinización y Minería
         </Typography>
         <Typography
-          variant="h5"
+          variant="h6"
           component="p"
           sx={{ mt: 2, fontSize: { xs: '1rem', md: '1.25rem' } }} // Font size adjusts with screen size
         >
