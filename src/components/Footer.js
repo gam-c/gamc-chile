@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Grid, Typography, IconButton } from '@mui/material';
 import Image from 'next/image';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
+import AlternateEmailTwoToneIcon from '@mui/icons-material/AlternateEmailTwoTone';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -29,7 +29,7 @@ const Footer = () => {
                 <LinkedInIcon />
               </IconButton>
               <IconButton color="inherit" href="mailto:info@gamc.cl">
-                <EmailIcon />
+                <AlternateEmailTwoToneIcon />
               </IconButton>
             </Box>
           </Grid>

@@ -47,13 +47,19 @@ const About = () => {
         Sobre Nosotros
       </Typography>
       <Typography variant="body1" paragraph sx={{ mt: 2, mb: 4 }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent venenatis metus at tortor pulvinar varius. Proin viverra nisi at nisl interdum, in sodales erat mollis. Donec a dolor felis. Duis tincidunt mauris sit amet diam feugiat, ut ornare justo euismod.
+      En GAMC Chile, somos más que proveedores de soluciones para la minería y desalinización. Somos un equipo de profesionales comprometidos con la excelencia y la innovación. Con el respaldo de Federal Screen Products Inc., líder mundial en fabricación de sistemas de filtración y separación, ofrecemos productos de la más alta calidad para optimizar los procesos de desalinización del agua de mar y producción de cobre.
+      <br/>
+      Nuestra misión es proporcionar a nuestros clientes herramientas eficientes y duraderas que impulsen su productividad y reduzcan sus costos operativos. Desde nuestra fundación, hemos trabajado incansablemente para establecer relaciones de confianza y colaboración con cada uno de nuestros clientes, entendiendo sus necesidades específicas y ofreciendo soluciones personalizadas.
+
+      Confía en GAMC Chile para llevar tus operaciones al siguiente nivel con productos que cumplen con los más altos estándares internacionales de calidad y rendimiento.
+
+
       </Typography>
       <Box
         sx={{
           width: '100%',
-          maxWidth: 235,
-          mt: 4, 
+          maxWidth: { xs: 150, sm: 200, md: 235 }, // Ajuste de tamaño en función del ancho de la pantalla
+          mt: 4,
         }}
       >
         <Link href="https://federalscreen.com" target="_blank" rel="noopener noreferrer">
