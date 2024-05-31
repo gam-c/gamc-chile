@@ -16,33 +16,25 @@ const Products = () => {
             position: 'relative',
             width: '100%',
             maxWidth: 750,
-            height: {
-              xs: 300,
-              sm: 400,
-              md: 500,
-              lg: 600,
-              xl: 700,
-            },
-            boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.3)', // Añadir sombra
             mx: 'auto',
             mb: 4,
           }}
         >
           <Carousel showArrows={true} infiniteLoop={true} showThumbs={false} autoPlay={true}>
-            <Box sx={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
-              <Image src="/images/canasto1.jpg" alt="Producto 1" fill style={{ objectFit: 'cover' }} sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 200, sm: 300, md: 400, lg: 500 } }}>
+              <Image src="/images/canasto1.jpg" alt="Producto 1" layout="fill" style={{ objectFit: 'cover' }} priority />
             </Box>
-            <Box sx={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
-              <Image src="/images/duplex2205.jpg" alt="Producto 2" fill style={{ objectFit: 'cover' }} sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 200, sm: 300, md: 400, lg: 500 } }}>
+              <Image src="/images/duplex2205.jpg" alt="Producto 2" layout="fill" style={{ objectFit: 'cover' }} priority />
             </Box>
-            <Box sx={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
-              <Image src="/images/filtro1.jpg" alt="Producto 3" fill style={{ objectFit: 'cover' }} sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 200, sm: 300, md: 400, lg: 500 } }}>
+              <Image src="/images/filtro1.jpg" alt="Producto 3" layout="fill" style={{ objectFit: 'cover' }} priority />
             </Box>
-            <Box sx={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
-              <Image src="/images/plain.screen.2.jpg" alt="Producto 4" fill style={{ objectFit: 'cover' }} sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 200, sm: 300, md: 400, lg: 500 } }}>
+              <Image src="/images/plain.screen.2.jpg" alt="Producto 4" layout="fill" style={{ objectFit: 'cover' }} priority />
             </Box>
-            <Box sx={{ position: 'relative', width: '100%', height: 0, paddingBottom: '56.25%' }}>
-              <Image src="/images/strainer3.jpg" alt="Producto 5" fill style={{ objectFit: 'cover' }} sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 200, sm: 300, md: 400, lg: 500 } }}>
+              <Image src="/images/strainer3.jpg" alt="Producto 5" layout="fill" style={{ objectFit: 'cover' }} priority />
             </Box>
           </Carousel>
         </Box>
