@@ -44,7 +44,8 @@ export default function Home() {
           component="p"
           sx={{ mt: 2, fontSize: { xs: '1rem', md: '1.25rem' } }} // Font size adjusts with screen size
         >
-          Maximiza tu producción con nuestros canastos y filtros autolimpiantes de alta eficiencia.
+          Maximiza tu producción con nuestros canastos y filtros autolimpiantes de alta eficiencia, descubre cómo nuestros productos pueden transformar tus operaciones. ¡Contáctanos hoy mismo para obtener más información y una cotización personalizada!
+
         </Typography>
         <Link href="/contact" passHref>
           <Button

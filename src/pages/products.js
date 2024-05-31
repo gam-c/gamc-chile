@@ -44,19 +44,19 @@ const Products = () => {
               Lista de Productos
             </Typography>
             <Typography variant="body1" paragraph>
-              - Producto 1
+              - Plain Screen
             </Typography>
             <Typography variant="body1" paragraph>
-              - Producto 2
+              - Canastos
             </Typography>
             <Typography variant="body1" paragraph>
-              - Producto 3
+              - Water Screen
             </Typography>
             <Typography variant="body1" paragraph>
-              - Producto 4
+              - Filtros autolimpiantes
             </Typography>
             <Typography variant="body1" paragraph>
-              - Producto 5
+              - Productos a medida
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -64,25 +64,25 @@ const Products = () => {
               Materiales Disponibles
             </Typography>
             <Typography variant="body1" paragraph>
-              - Material 1
+              - 304/304L
             </Typography>
             <Typography variant="body1" paragraph>
-              - Material 2
+              - Duplex
             </Typography>
             <Typography variant="body1" paragraph>
-              - Material 3
+              - Hastelloy C-276
             </Typography>
             <Typography variant="body1" paragraph>
-              - Material 4
+              - Monel 400
             </Typography>
             <Typography variant="body1" paragraph>
-              - Material 5
+              - 316/316L
             </Typography>
           </Grid>
         </Grid>
         <Box sx={{ mt: 4, textAlign: 'center' }}>
           <Typography variant="body1" paragraph>
-            Todos nuestros productos son hechos a medida y se ajustan a los requerimientos específicos de cada cliente. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+          En GAMC Chile, ofrecemos una gama de productos diseñados para optimizar los procesos de desalinización y producción minera.
           </Typography>
         </Box>
       </Box>
