@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     // Configuración del transporte
     const transporter = nodemailer.createTransport({
       host: 'smtp.titan.email', // Servidor SMTP de Titan Mail
-      port: 465, // Puerto SMTP (cambia a 465 si usas SSL/TLS) 587
-      secure: true, // true para puerto 465, false para otros puertos
+      port: 587, // Puerto SMTP (cambia a 465 si usas SSL/TLS) 587
+      secure: false, // true para puerto 465, false para otros puertos
       auth: {
         user: process.env.EMAIL_USER, // Tu correo electrónico de Titan Mail
         pass: process.env.EMAIL_PASS, // Tu contraseña o token de aplicación de Titan Mail
