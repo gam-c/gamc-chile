@@ -1,37 +1,41 @@
 import nodemailer from 'nodemailer';
 
-export default async (req, res) => {
-  const { name, company, email, message } = req.body;
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    const { name, company, email, message } = req.body;
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Todos los campos son obligatorios, excepto empresa.' });
+    // Configuración del transporte
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.titan.email', // Servidor SMTP de Titan Mail
+      port: 465, // Puerto SMTP (cambia a 465 si usas SSL/TLS) 587
+      secure: true, // true para puerto 465, false para otros puertos
+      auth: {
+        user: process.env.EMAIL_USER, // Tu correo electrónico de Titan Mail
+        pass: process.env.EMAIL_PASS, // Tu contraseña o token de aplicación de Titan Mail
+      },
+    });
+
+    // Configuración del correo electrónico
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: 'info@gamc.cl', // El correo al que se enviará el mensaje
+      subject: 'Nuevo mensaje de contacto',
+      text: `
+        Nombre: ${name}
+        Empresa: ${company}
+        Correo: ${email}
+        Mensaje: ${message}
+      `,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      res.status(200).json({ message: 'Correo enviado correctamente' });
+    } catch (error) {
+      console.error('Error enviando correo:', error);
+      res.status(500).json({ message: 'Error enviando correo' });
+    }
+  } else {
+    res.status(405).json({ message: 'Método no permitido' });
   }
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'tu-email@gmail.com', // Reemplaza con tu correo de Gmail
-      pass: 'tu-contraseña', // Reemplaza con tu contraseña de Gmail
-    },
-  });
-
-  const mailOptions = {
-    from: email,
-    to: 'info@gamc.cl', // Correo al que se enviará el mensaje
-    subject: `Nuevo mensaje de contacto de ${name}`,
-    text: `
-      Nombre: ${name}
-      Empresa: ${company}
-      Correo: ${email}
-      Mensaje: ${message}
-    `,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    return res.status(200).json({ message: 'Mensaje enviado con éxito' });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Error al enviar el mensaje' });
-  }
-};
+}
