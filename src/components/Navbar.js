@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Box, IconButton, Menu, MenuItem, Button } 
 import Link from 'next/link';
 import Image from 'next/image';
 import MenuIcon from '@mui/icons-material/Menu';
+import { keyframes } from '@emotion/react';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -15,8 +16,20 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
+  const bounceAnimation = keyframes`
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  `;
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
+    <AppBar position="sticky" sx={{ backgroundColor: 'white', color: 'black', boxShadow: 0 }}>
       <Toolbar>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
           <Link href="/" passHref legacyBehavior>
@@ -27,16 +40,52 @@ const Navbar = () => {
         </Box>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
           <Link href="/" passHref legacyBehavior>
-            <Button sx={{ color: 'black' }}>Inicio</Button>
+            <Button
+              sx={{
+                color: 'black',
+                '&:hover': {
+                  animation: `${bounceAnimation} 1s ease`,
+                },
+              }}
+            >
+              Inicio
+            </Button>
           </Link>
           <Link href="/about" passHref legacyBehavior>
-            <Button sx={{ color: 'black' }}>Nosotros</Button>
+            <Button
+              sx={{
+                color: 'black',
+                '&:hover': {
+                  animation: `${bounceAnimation} 1s ease`,
+                },
+              }}
+            >
+              Nosotros
+            </Button>
           </Link>
           <Link href="/products" passHref legacyBehavior>
-            <Button sx={{ color: 'black' }}>Productos</Button>
+            <Button
+              sx={{
+                color: 'black',
+                '&:hover': {
+                  animation: `${bounceAnimation} 1s ease`,
+                },
+              }}
+            >
+              Productos
+            </Button>
           </Link>
           <Link href="/contact" passHref legacyBehavior>
-            <Button sx={{ color: 'black' }}>Contacto</Button>
+            <Button
+              sx={{
+                color: 'black',
+                '&:hover': {
+                  animation: `${bounceAnimation} 1s ease`,
+                },
+              }}
+            >
+              Contacto
+            </Button>
           </Link>
         </Box>
         <IconButton
