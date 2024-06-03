@@ -4,6 +4,8 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { name, company, email, message } = req.body;
 
+    console.log('Request body:', req.body);
+    
     // Configuración del transporte
     const transporter = nodemailer.createTransport({
       host: 'smtp.titan.email', // Servidor SMTP de Titan Mail
@@ -14,6 +16,8 @@ export default async function handler(req, res) {
         pass: process.env.EMAIL_PASS, // Tu contraseña o token de aplicación de Titan Mail
       },
     });
+
+    console.log('Transporter configured');
 
     // Configuración del correo electrónico
     const mailOptions = {
@@ -29,7 +33,8 @@ export default async function handler(req, res) {
     };
 
     try {
-      await transporter.sendMail(mailOptions);
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent:', info.response);
       res.status(200).json({ message: 'Correo enviado correctamente' });
     } catch (error) {
       console.error('Error enviando correo:', error);
