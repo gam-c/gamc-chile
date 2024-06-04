@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
       <Box component="main" sx={{ flex: 1 }}>
         <Component {...pageProps} />
         <SpeedInsights />
+        <Analytics />
       </Box>
       <Footer />
     </Box>
