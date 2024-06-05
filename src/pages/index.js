@@ -2,8 +2,12 @@ import React from 'react';
 import { Container, Typography, Button, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Home() {
+  const { t } = useTranslation('common');
+
   return (
     <Container>
       <Box sx={{ my: 4, textAlign: 'center' }}>
@@ -23,7 +27,7 @@ export default function Home() {
         >
           <Image
             src="/desalinizadora.jpg" // Asegúrate de que la imagen esté en el directorio public
-            alt="Minería"
+            alt={t('mining')}
             fill
             style={{ objectFit: 'cover' }} // Actualización para Next.js 13
             priority
@@ -35,17 +39,16 @@ export default function Home() {
           variant="h5"
           component="h2"
           gutterBottom
-          sx={{ mt: 4, fontSize: { xs: '1.5rem', md: '2rem' } }} // Font size adjusts with screen size
+          sx={{ mt: 4, fontSize: { xs: '1.5rem', md: '2rem' }}}
         >
-          Líderes en Soluciones para Desalinización y Minería
+          {t('welcome')}
         </Typography>
         <Typography
           variant="h6"
           component="p"
-          sx={{ mt: 2, fontSize: { xs: '1rem', md: '1.25rem' } }} // Font size adjusts with screen size
+          sx={{ mt: 2, fontSize: { xs: '1rem', md: '1.25rem' }}}
         >
-          Maximiza tu producción con nuestros canastos y filtros autolimpiantes de alta eficiencia, descubre cómo nuestros productos pueden transformar tus operaciones. ¡Contáctanos hoy mismo para obtener más información y una cotización personalizada!
-
+          {t('homepageDescription')}
         </Typography>
         <Link href="/contact" passHref>
           <Button
@@ -56,14 +59,22 @@ export default function Home() {
               '&:hover': {
                 backgroundColor: 'darkgrey',
               },
-              fontSize: { xs: '0.75rem', md: '1rem' }, // Font size adjusts with screen size
-              padding: { xs: '8px 16px', md: '12px 24px' }, // Padding adjusts with screen size
+              fontSize: { xs: '0.75rem', md: '1rem' },
+              padding: { xs: '8px 16px', md: '12px 24px' },
             }}
           >
-            Contáctanos
+            {t('contactUs')}
           </Button>
         </Link>
       </Box>
     </Container>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }

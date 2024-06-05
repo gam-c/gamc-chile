@@ -1,8 +1,12 @@
 import React from 'react';
 import { Box, Container, Typography, Link } from '@mui/material';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const About = () => {
+  const { t } = useTranslation('common');
+
   return (
     <Container
       sx={{
@@ -44,16 +48,10 @@ const About = () => {
         gutterBottom
         sx={{ mt: 2, fontSize: { xs: '1.5rem', md: '2rem' } }}
       >
-        Sobre Nosotros
+        {t('aboutTitle')}
       </Typography>
       <Typography variant="body1" paragraph sx={{ mt: 2, mb: 4 }}>
-      En GAMC Chile, somos más que proveedores de soluciones para la minería y desalinización. Somos un equipo de profesionales comprometidos con la excelencia y la innovación. Con el respaldo de Federal Screen Products Inc., líder mundial en fabricación de sistemas de filtración y separación, ofrecemos productos de la más alta calidad para optimizar los procesos de desalinización del agua de mar y producción de cobre.
-      <br/>
-      Nuestra misión es proporcionar a nuestros clientes herramientas eficientes y duraderas que impulsen su productividad y reduzcan sus costos operativos. Desde nuestra fundación, hemos trabajado incansablemente para establecer relaciones de confianza y colaboración con cada uno de nuestros clientes, entendiendo sus necesidades específicas y ofreciendo soluciones personalizadas.
-
-      Confía en GAMC Chile para llevar tus operaciones al siguiente nivel con productos que cumplen con los más altos estándares internacionales de calidad y rendimiento.
-
-
+        {t('aboutText')}
       </Typography>
       <Box
         sx={{
@@ -76,5 +74,13 @@ const About = () => {
     </Container>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
 
 export default About;

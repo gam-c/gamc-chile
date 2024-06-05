@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Box, IconButton, Menu, MenuItem, Button } from '@mui/material';
+import { AppBar, Toolbar, Box, IconButton, Menu, MenuItem, Button } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import MenuIcon from '@mui/icons-material/Menu';
 import { keyframes } from '@emotion/react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { t } = useTranslation('common');
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -48,7 +51,7 @@ const Navbar = () => {
                 },
               }}
             >
-              Inicio
+              {t('home')}
             </Button>
           </Link>
           <Link href="/about" passHref legacyBehavior>
@@ -60,7 +63,7 @@ const Navbar = () => {
                 },
               }}
             >
-              Nosotros
+              {t('about')}
             </Button>
           </Link>
           <Link href="/products" passHref legacyBehavior>
@@ -72,7 +75,7 @@ const Navbar = () => {
                 },
               }}
             >
-              Productos
+              {t('products')}
             </Button>
           </Link>
           <Link href="/contact" passHref legacyBehavior>
@@ -84,7 +87,7 @@ const Navbar = () => {
                 },
               }}
             >
-              Contacto
+              {t('contactUs')}
             </Button>
           </Link>
         </Box>
@@ -105,25 +108,28 @@ const Navbar = () => {
         >
           <MenuItem onClick={handleMenuClose}>
             <Link href="/" passHref legacyBehavior>
-              <a style={{ color: 'black', textDecoration: 'none' }}>Inicio</a>
+              <a style={{ color: 'black', textDecoration: 'none' }}>{t('home')}</a>
             </Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
             <Link href="/about" passHref legacyBehavior>
-              <a style={{ color: 'black', textDecoration: 'none' }}>Nosotros</a>
+              <a style={{ color: 'black', textDecoration: 'none' }}>{t('about')}</a>
             </Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
             <Link href="/products" passHref legacyBehavior>
-              <a style={{ color: 'black', textDecoration: 'none' }}>Productos</a>
+              <a style={{ color: 'black', textDecoration: 'none' }}>{t('products')}</a>
             </Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
             <Link href="/contact" passHref legacyBehavior>
-              <a style={{ color: 'black', textDecoration: 'none' }}>Contacto</a>
+              <a style={{ color: 'black', textDecoration: 'none' }}>{t('contactUs')}</a>
             </Link>
           </MenuItem>
         </Menu>
+        <Box sx={{ ml: 2 }}>
+          <LanguageSwitcher />
+        </Box>
       </Toolbar>
     </AppBar>
   );

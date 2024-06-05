@@ -1,10 +1,13 @@
+// src/pages/_app.js
+
 import '../styles/globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Box } from '@mui/material';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from "@vercel/analytics/react"
-  
+import { Analytics } from "@vercel/analytics/react";
+import { appWithTranslation } from 'next-i18next';
+
 function MyApp({ Component, pageProps }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -19,4 +22,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
