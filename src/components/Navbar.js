@@ -41,7 +41,7 @@ const Navbar = () => {
             </a>
           </Link>
         </Box>
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
           <Link href="/" passHref legacyBehavior>
             <Button
               sx={{
@@ -90,16 +90,23 @@ const Navbar = () => {
               {t('contactUs')}
             </Button>
           </Link>
+          <Box sx={{ ml: 2 }}>
+            <LanguageSwitcher />
+          </Box>
         </Box>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ display: { xs: 'block', md: 'none' } }}
-          onClick={handleMenuOpen}
-        >
-          <MenuIcon />
-        </IconButton>
+        <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <LanguageSwitcher />
+          </Box>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleMenuOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
@@ -127,9 +134,6 @@ const Navbar = () => {
             </Link>
           </MenuItem>
         </Menu>
-        <Box sx={{ ml: 2 }}>
-          <LanguageSwitcher />
-        </Box>
       </Toolbar>
     </AppBar>
   );
